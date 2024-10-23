@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorios</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'laboratorios/css/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Laboratorios</h1>
+    <div class="container">
+        {% for laboratorio in laboratorios %}
+        <div class="laboratorio-card">
+            <h2>{{ laboratorio.titulo|safe }}</h2>
+            <p>{{ laboratorio.descripcion|safe }}</p>
+            <span>Fecha: {{ laboratorio.fecha }}</span>
+            <a href="{% url 'laboratorio_detail' laboratorio.id %}">Ver Detalles</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

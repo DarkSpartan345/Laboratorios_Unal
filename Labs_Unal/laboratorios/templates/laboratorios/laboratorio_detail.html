@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ laboratorio.titulo }}</title>
+    <link rel="stylesheet" href="{% static 'laboratorios/css/laboratorio_details.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ laboratorio.titulo }}</h1>
+        </header>
+        <section class="content">
+            <h2>Descripción</h2>
+            <div class="text-content">{{ laboratorio.descripcion|safe }}</div>
+            
+            <h2>Objetivo</h2>
+            <div class="text-content">{{ laboratorio.objetivo|safe }}</div>
+            
+            <h2>Materiales</h2>
+            <div class="text-content">{{ laboratorio.materiales|safe }}</div>
+            
+            <h2>Procedimiento</h2>
+            <div class="text-content">{{ laboratorio.procedimiento|safe }}</div>
+            
+            <h2>Resultados</h2>
+            <div class="text-content">{{ laboratorio.resultados|safe }}</div>
+            
+            <h2>Observaciones</h2>
+            <div class="text-content">{{ laboratorio.observaciones|safe }}</div>
+        </section>
+        <footer>
+            <a href="{% url 'lista_laboratorios' %}" class="back-button">Volver a la lista</a>
+        </footer>
+    </div>
+</body>
+</html>
