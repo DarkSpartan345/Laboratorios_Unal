@@ -10,31 +10,57 @@ h1 {
     margin-top: 20px;
     color: #333;
 }
-
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    display: flex;
+    flex-direction: row;
+    background-color: #000;
+    color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 48%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    background-color: white;
+    width: 50%;
+    height: 100%;
+}
+
+.info {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.laboratorio-card {
-    background-color: #fff;
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
-.laboratorio-card h2 {
-    color: #333;
-    margin: 0 0 10px;
+.info p {
+    font-size: 1rem;
+    margin-bottom: 20px;
 }
 
-.laboratorio-card p {
-    color: #666;
+.button {
+    background-color: #ffcc00;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.laboratorio-card span {
-    color: #888;
-    font-size: 0.9em;
+.button:hover {
+    background-color: #e6b800;
 }

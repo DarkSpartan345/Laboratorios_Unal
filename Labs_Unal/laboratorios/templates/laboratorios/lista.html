@@ -11,13 +11,19 @@
     <h1>Lista de Laboratorios</h1>
     <div class="container">
         {% for laboratorio in laboratorios %}
-        <div class="laboratorio-card">
-            <h2>{{ laboratorio.titulo|safe }}</h2>
-            <p>{{ laboratorio.descripcion|safe }}</p>
-            <span>Fecha: {{ laboratorio.fecha }}</span>
-            <a href="{% url 'laboratorio_detail' laboratorio.id %}">Ver Detalles</a>
+        <div class="card">
+            {% if laboratorio.imagen %}
+                <img src="{{ laboratorio.imagen.url }}" alt="Imagen del laboratorio">
+            {% else %}
+                <p>No hay imagen disponible.</p>
+            {% endif %}
+            <div class="info">
+                <h3>{{ laboratorio.titulo|safe }}</h3>
+                <p>{{ laboratorio.descripcion|safe }}</p>
+                <span>Fecha: {{ laboratorio.fecha }}</span>
+                <a href="{% url 'laboratorio_detail' laboratorio.id %}">Ver Detalles</a>
+            </div>
         </div>
         {% endfor %}
-    </div>
 </body>
 </html>

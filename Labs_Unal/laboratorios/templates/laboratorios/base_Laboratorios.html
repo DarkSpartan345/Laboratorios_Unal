@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{%endblock%}</title>
+    <link rel="stylesheet" href="{% static 'laboratorios/css/laboratorio_crear.css' %}">
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script> <!-- Cargar CKEditor 5 -->
+</head>
+<body>
+    <h1>{% block title_page %}{%endblock%}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_laboratorios' %}">Volver a la lista</a>
+
+    <script>
+        // Inicializa CKEditor en todos los campos RichText
+        ClassicEditor
+            .create(document.querySelector('#id_descripcion'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#id_objetivo'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#id_materiales'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#id_procedimiento'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#id_resultados'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#id_observaciones'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
