@@ -8,7 +8,7 @@ id_order = [6,7,8,5,1,2,3,4]
 def lista_laboratorios(request):
     laboratorios = Laboratorio.objects.filter(id__in=id_order).order_by(
     Case(*[When(id=id, then=pos) for pos, id in enumerate(id_order)]))
-    return render(request, 'laboratorios/lista.html', {'laboratorios': laboratorios})
+    return render(request, 'laboratorios/index.html', {'laboratorios': laboratorios})
 
 class LaboratorioDetailView(DetailView):
     model = Laboratorio
